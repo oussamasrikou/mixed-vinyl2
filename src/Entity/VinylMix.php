@@ -106,11 +106,19 @@ class VinylMix
         return $this->votes;
     }
 
-    public function setVotes(int $votes): static
+    public function setVotes(int $votes): self
     {
         $this->votes = $votes;
 
         return $this;
+    }
+    public function upVote(): void
+    {
+        $this->votes++;
+    }
+    public function downVote(): void
+    {
+        $this->votes--;
     }
     public function getVotesString(): string
     {
