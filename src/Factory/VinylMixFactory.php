@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Entity\VinylMix;
+
 use App\Repository\VinylMixRepository;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
