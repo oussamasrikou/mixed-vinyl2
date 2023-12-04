@@ -21,7 +21,7 @@ class MixController extends AbstractController
         $mix->setGenre($genres[array_rand($genres)]);
         $mix->setTrackCount(rand(5, 20));
         $mix->setVotes(rand(-50, 50));
-       
+
         $entityManager->persist($mix);
         $entityManager->flush();
         return new Response(sprintf(
@@ -31,12 +31,8 @@ class MixController extends AbstractController
         ));
     }
     #[Route('/mix/{id}')]
-    public function show($id, VinylMixRepository $mixRepository): Response
+    public function show(VinylMix $mix): Response
     {
-        $mix = $mixRepository->find($id);
-        if (!$mix) {
-            throw $this->createNotFoundException('Mix not found');
-        }
         return $this->render('mix/show.html.twig', [
             'mix' => $mix,
         ]);
